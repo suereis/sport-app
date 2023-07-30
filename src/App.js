@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./App.scss";
+import { useEffect, useState } from "react";
+import Routing from "./components/Routing";
+import teamsDataJson from "./data/teamsData.json";
 
 function App() {
+  const [teamsData, setTeamsData] = useState([]);
+  const fetchTeam = async () => {
+    const url =
+      "https://tank01-fantasy-stats.p.rapidapi.com/getNBATeams?schedules=true&rosters=true&topPerformers=true&teamStats=true&statsToGet=averages";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
+        "X-RapidAPI-Host": "tank01-fantasy-stats.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      console.log(result.body);
+      setTeamsData(result.body);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    // fetchTeam();
+    console.log(teamsDataJson.body);
+    setTeamsData(teamsDataJson.body);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routing teamsData={teamsData}></Routing>
     </div>
   );
 }

@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Create .env file with REACT_APP_RAPIDAPI_KEY and secret key value.
+
 ## Available Scripts
 
 In the project directory, you can run:

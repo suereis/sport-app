@@ -1,0 +1,43 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import NavBar from "./NavBar";
+import Home from "./Home";
+import About from "./About";
+import League from "./League";
+import Teams from "./Teams";
+import Players from "./Players";
+import Games from "./Games";
+import Footer from "./Footer";
+import Error from "./Error";
+import Login from "./Login";
+import Register from "./Register";
+
+const Routing = (props) => {
+  return (
+    <BrowserRouter>
+      <div>
+        <NavBar />
+        <Container>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/league" element={<League />} />
+            <Route
+              path="/teams"
+              element={<Teams teamsData={props.teamsData} />}
+            />
+            <Route path="/players/:teamId" element={<Players />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Container>
+        <Footer></Footer>
+      </div>
+    </BrowserRouter>
+  );
+};
+
+export default Routing;
