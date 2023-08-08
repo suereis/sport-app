@@ -12,6 +12,7 @@ import Footer from "./Footer";
 import Error from "./Error";
 import Login from "./Login";
 import Register from "./Register";
+import Team from "./Team";
 
 const Routing = (props) => {
   return (
@@ -26,6 +27,10 @@ const Routing = (props) => {
             <Route
               path="/teams"
               element={<Teams teamsData={props.teamsData} />}
+            />
+            <Route
+              path="/team/:teamId"
+              element={<Team teamsData={props.teamsData} />}
             />
             <Route path="/players/:teamId" element={<Players />} />
             <Route path="/games" element={<Games />} />

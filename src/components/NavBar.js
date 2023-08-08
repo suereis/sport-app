@@ -4,7 +4,7 @@ import Logo from "../images/logo.png";
 
 const NavBar = () => {
   return (
-    <div id="navDiv">
+    <div id="navDiv" className="fixed-top">
       <Navbar
         expand="md
       "
