@@ -6,6 +6,8 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
 
 .App {
   text-align: center;
+  // max-height: 600px;
+  // overflow-y: auto;
 }
 
 #navDiv {
@@ -45,6 +47,22 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
   width: 100%;
   height: 60px;
 }
+
+#teamDiv {
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#team-card {
+  width: 30rem;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
 
 #primaryBtn {
   background-color: $orangeColor;

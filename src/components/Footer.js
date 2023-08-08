@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <div className="fixed-bottom" id="footerDiv">
+    <div id="footerDiv">
       <div id="footerDiv">
         <Container>
           <div>Copyright © {year} Basketball Central. All Rights Reserved.</div>
