@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const League = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ margin: "100px" }}>
       <div>League</div>
       <button
         id="primaryBtn"

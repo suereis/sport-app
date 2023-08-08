@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Error = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ margin: "100px" }}>
       <div>Error: Page Not Found</div>
       <button
         id="primaryBtn"
