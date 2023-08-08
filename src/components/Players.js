@@ -5,7 +5,7 @@ const Players = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   return (
-    <div>
+    <div style={{ margin: "100px" }}>
       <div>
         Players from Team
         {id}

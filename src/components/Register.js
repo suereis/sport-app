@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ margin: "100px" }}>
       <div>Register</div>
       <button
         id="primaryBtn"
