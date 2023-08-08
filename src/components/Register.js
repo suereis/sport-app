@@ -7,7 +7,7 @@ const Register = () => {
     <div style={{ margin: "100px" }}>
       <div>Register</div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/login");
         }}

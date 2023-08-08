@@ -49,7 +49,7 @@ const NavBar = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button id="primaryBtn">Search</Button>
+              <Button className="primaryBtn">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

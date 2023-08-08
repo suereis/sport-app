@@ -65,7 +65,7 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
 }
 
 
-#primaryBtn {
+.primaryBtn {
   background-color: $orangeColor;
   color: $whiteColor;
   border: none;
@@ -78,7 +78,7 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
   cursor: pointer;
 }
 
-#primaryBtn:hover {
+.primaryBtn:hover {
   background-color: $blackColor;
   color: $orangeColor;
   font-weight: 500;

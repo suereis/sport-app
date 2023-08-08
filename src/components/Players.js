@@ -11,7 +11,7 @@ const Players = () => {
         {id}
       </div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/");
         }}

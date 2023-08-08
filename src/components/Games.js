@@ -7,7 +7,7 @@ const Games = () => {
     <div>
       <div>Games</div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/");
         }}
