@@ -7,7 +7,7 @@ const Error = () => {
     <div style={{ margin: "100px" }}>
       <div>Error: Page Not Found</div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/");
         }}

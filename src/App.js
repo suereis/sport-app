@@ -31,7 +31,18 @@ function App() {
   useEffect(() => {
     // fetchTeam();
     console.log(teamsDataJson.body);
-    setTeamsData(teamsDataJson.body);
+
+    setTeamsData(
+      teamsDataJson.body.sort((a, b) => {
+        if (a.teamName < b.teamName) {
+          return -1;
+        }
+        if (a.teamName > b.teamName) {
+          return 1;
+        }
+        return 0;
+      })
+    );
   }, []);
   return (
     <div className="App">

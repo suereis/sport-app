@@ -7,7 +7,7 @@ const League = () => {
     <div style={{ margin: "100px" }}>
       <div>League</div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/");
         }}

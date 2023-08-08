@@ -10,29 +10,40 @@ const Teams = (props) => {
   return (
     <div id="teamDiv">
       <h3>Teams</h3>
-      <div className="card">
-        <div></div>
-        {/* <div>{JSON.stringify(props.teamsData)}</div> */}
-
-        <ul className="list-group list-group-flush">
-          {props.teamsData.map((team) => (
-            <li
-              key={team.teamID}
-              className="list-group-item btn-link"
-              onClick={() => {
-                handleTeamClick(team.teamID);
-              }}
-            >
-              <button type="button" className="btn btn-link">
-                {team.teamName}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {props.teamsData.map((team) => (
+          <div className="col">
+            <div className="card h-100">
+              <img
+                src={team.nbaComLogo1}
+                class="card-img-top"
+                alt="..."
+                style={{
+                  width: "200px",
+                  marginRight: "auto",
+                  marginLeft: "auto",
+                }}
+              ></img>
+              <div class="card-body">
+                <h5 class="card-title">{team.teamName}</h5>
+              </div>
+              <div class="card-footer">
+                <button
+                  className="primaryBtn"
+                  onClick={() => {
+                    handleTeamClick(team.teamID);
+                  }}
+                >
+                  Details
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         style={{ marginBottom: "10px" }}
         onClick={() => {
           navigate("/");

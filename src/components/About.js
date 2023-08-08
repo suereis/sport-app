@@ -7,7 +7,7 @@ const About = () => {
     <div style={{ margin: "100px" }}>
       <div>About</div>
       <button
-        id="primaryBtn"
+        className="primaryBtn"
         onClick={() => {
           navigate("/");
         }}
