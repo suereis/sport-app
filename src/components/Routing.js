@@ -6,7 +6,6 @@ import Home from "./Home";
 import About from "./About";
 import League from "./League";
 import Teams from "./Teams";
-import Players from "./Players";
 import Games from "./Games";
 import Footer from "./Footer";
 import Error from "./Error";
@@ -34,7 +33,6 @@ const Routing = (props) => {
               path="/team/:teamId"
               element={<Team teamsData={props.teamsData} />}
             />
-            <Route path="/players/:teamId" element={<Players />} />
             <Route path="/games" element={<Games />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

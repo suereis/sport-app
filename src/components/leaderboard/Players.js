@@ -35,12 +35,12 @@ export default function Players() {
             };
             const response = await fetch(url, options);
             const json = await response.json();
-            setPlayerData(json);
+            setPlayerData(json.results);
         };
         fetchPlayerData();
     }, [season, sortBy]);
 
-    const PlayerTable = ({ player, index }) => {
+    const PlayerTable = () => {
         return (
             <Table striped bordered hover responsive>
                 <thead>
@@ -57,7 +57,7 @@ export default function Players() {
                 </thead>
                 <tbody>
                     {playerData.map((player, index) => (
-                        <tr key={player.id - season}>
+                        <tr key={`${player.id}-${season}`}>
                             <td>{index + 1}</td>
                             <td>{player.player_name}</td>
                             <td>{player.team}</td>
