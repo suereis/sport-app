@@ -87,41 +87,45 @@ function Leaderboard() {
     }, [season, sortBy]);
 
     return (
-        <div style={{ margin: "100px" }}>
-            <div id="sortBy">
-                <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Sort By
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item onClick={() => setSortBy("Playoff Points")} >Playoff Points</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy("Playoff Assists")} >Playoff Assists</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item onClick={() => setSortBy("Total Points")} >Total Points</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy("Total Assists")} >Total Assists</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setSortBy("Total Rebounds")} >Total Rebounds</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+        <div style={{ marginTop: "80px" }}>
+            <div id="options" >
+                <h4>Options</h4>
+                <div id="sortBy" style={{ display: "inline-block", marginRight: "10px" }}>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            Sort By {sortBy}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => setSortBy("Playoff Points")} >Playoff Points</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy("Playoff Assists")} >Playoff Assists</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item onClick={() => setSortBy("Total Points")} >Total Points</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy("Total Assists")} >Total Assists</Dropdown.Item>
+                            <Dropdown.Item onClick={() => setSortBy("Total Rebounds")} >Total Rebounds</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+                <div id="seasonSelect" style={{ display: "inline-block" }}>
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            Season {season}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {seasons.map((season) => (
+                                <Dropdown.Item onClick={() => setSeason(season.year)} >{season.label}</Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
             </div>
-            <div id="seasonSelect">
-                <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Select a Season
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {seasons.map((season) => (
-                            <Dropdown.Item onClick={() => setSeason(season.year)} >{season.label}</Dropdown.Item>
-                        ))}
-                    </Dropdown.Menu>
-                </Dropdown>
-            </div>
+            <hr />
             <div id="data">
                 <h2>{sortBy} Leaderboards for Season {season}</h2>
                 <hr />
                 {seasonData.length > 0 ? (
                     <PlayerTable />
                 ) : (
-                    <Spinner animation="border" role="status">
+                    <Spinner animation="border" role="status" style={{marginBottom: "200%"}}>
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 )}
