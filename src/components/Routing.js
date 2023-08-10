@@ -14,7 +14,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Team from "./Team";
 import SearchBar from "./SearchBar";
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./leaderboard/Leaderboard";
 
 const Routing = (props) => {
   return (
