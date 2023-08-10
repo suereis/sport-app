@@ -5,10 +5,8 @@ export default function Standings() {
     const currentYear = new Date().getFullYear();
     const startYear = 2010;
     const [standingsData, setStandingsData] = useState([]);
-    const [division, setDivision] = useState('central');
     const [season, setSeason] = useState(2020);
     
-    const divisionsMap = ["no", "atlantic", "central", "northwest", "pacific", "southeast", "southwest"]
     const seasons = [];
     for (let year = startYear; year <= currentYear; year++) {
         seasons.push({ year, label: `${year}` });
@@ -17,7 +15,7 @@ export default function Standings() {
     useEffect(() => {
         const fetchStandingsData = async () => {
             setStandingsData([]);
-            const url = `https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=${season}&division=${division}`;
+            const url = `https://api-nba-v1.p.rapidapi.com/standings?league=standard&season=${season}`;
             console.log(url);
     
             const options = {
@@ -34,7 +32,7 @@ export default function Standings() {
             console.log(json);
         };
         fetchStandingsData();
-    }, [season, division]);
+    }, [season]);
 
     const StandingsTable = () => {
         <div id="standingsTable">
@@ -78,20 +76,6 @@ export default function Standings() {
         <div>
             <div id="options" >
                 <h4>Options</h4>
-                <div id="divisions" style={{ display: "inline-block", marginRight: "10px" }}>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            {division.charAt(0).toUpperCase() + division.slice(1)} Division
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            {divisionsMap.map((division) => (
-                                <Dropdown.Item onClick={() => setDivision(division)} >
-                                    {division.charAt(0).toUpperCase() + division.slice(1)}
-                                </Dropdown.Item>
-                            ))}
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </div>
                 <div id="seasonSelect" style={{ display: "inline-block" }}>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -107,7 +91,7 @@ export default function Standings() {
             </div>
             <hr />
             <div id="data">
-                <h2>{division.charAt(0).toUpperCase() + division.slice(1)} Standings for Season {season}</h2>
+                <h2>Standings for Season {season}</h2>
                 <hr />
                 {standingsData.length > 0 ? (
                     <StandingsTable />
