@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Dropdown, Table, Spinner, ButtonGroup, ToggleButton } from "react-bootstrap";
 
 export default function Standings() {
-    const currentYear = new Date().getFullYear();
-    const startYear = 2010;
+    const endYear = (new Date().getFullYear()) - 1;
+    const startYear = 2018;
     const [standingsData, setStandingsData] = useState([]);
-    const [season, setSeason] = useState(2020);
+    const [easternConferenceData, setEasternConferenceData] = useState([]);
+    const [westernConferenceData, setWesternConferenceData] = useState([]);
+    const [season, setSeason] = useState(2019);
     
     const seasons = [];
-    for (let year = startYear; year <= currentYear; year++) {
+    for (let year = startYear; year <= endYear; year++) {
         seasons.push({ year, label: `${year}` });
     }
 
@@ -28,47 +30,51 @@ export default function Standings() {
 
             const response = await fetch(url, options);
             const json = await response.json();
-            setStandingsData(json);
-            console.log(json);
+            setStandingsData(json.response);
         };
         fetchStandingsData();
     }, [season]);
 
-    const StandingsTable = () => {
-        <div id="standingsTable">
+    useEffect(() => {
+        setEasternConferenceData(standingsData.filter(item => item.conference.name === 'east').sort((a, b) => b.win.total - a.win.total));
+        setWesternConferenceData(standingsData.filter(item => item.conference.name === 'west').sort((a, b) => b.win.total - a.win.total));
+    }, [standingsData]);
+
+    const StandingsTable = (props) => {
+        return (
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Team</th>
-                        <th>Win</th>
-                        <th>Loss</th>
-                        <th>Win%</th>
-                        <th>Games Behind</th>
-                        <th>Points For</th>
-                        <th>Points Against</th>
-                        <th>Points Diff</th>
-                        <th>Streak</th>
-                        <th>Last 10</th>
+                        <th>TEAM</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>WIN%</th>
+                        <th>CONF | WL</th>
+                        <th>DIV | WL</th>
+                        <th>HOME</th>
+                        <th>AWAY</th>
+                        <th>STREAK</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {standingsData.map((team) => (
-                        <tr>
-                            <td>{team.teamName}</td>
-                            <td>{team.win}</td>
-                            <td>{team.loss}</td>
-                            <td>{team.winPct}</td>
-                            <td>{team.gamesBehind}</td>
-                            <td>{team.pointsFor}</td>
-                            <td>{team.pointsAgainst}</td>
-                            <td>{team.pointsDiff}</td>
-                            <td>{team.streak}</td>
-                            <td>{team.lastTen}</td>
+                    {props.data.map((team) => (
+                        <tr key={`${team.team.code}-${season}`}>
+                            <td>{team.team.name} ({team.team.code})</td>
+                            <td>{team.win.total}</td>
+                            <td>{team.loss.total}</td>
+                            <td>
+                                {((team.win.total / (team.win.total + team.loss.total)) * 100).toFixed(1)}
+                            </td>
+                            <td>{team.conference.name.charAt(0).toUpperCase() + team.conference.name.slice(1)} | {team.conference.win}-{team.conference.loss}</td>
+                            <td>{team.division.name.charAt(0).toUpperCase() + team.division.name.slice(1)} | {team.division.win}-{team.division.loss}</td>
+                            <td>{team.win.home}-{team.loss.home}</td>
+                            <td>{team.win.away}-{team.loss.away}</td>
+                            <td>{team.winStreak ? "W" : "L"} {team.streak}</td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
-        </div>
+        );
     }
 
 
@@ -94,7 +100,12 @@ export default function Standings() {
                 <h2>Standings for Season {season}</h2>
                 <hr />
                 {standingsData.length > 0 ? (
-                    <StandingsTable />
+                    <div>
+                        <h4>Eastern Conference</h4>
+                        <StandingsTable data={easternConferenceData} />
+                        <h4>Western Conference</h4>
+                        <StandingsTable data={westernConferenceData} />
+                    </div>
                 ) : (
                     <Spinner animation="border" role="status" style={{marginBottom: "100%"}}>
                         <span className="visually-hidden">Loading...</span>
