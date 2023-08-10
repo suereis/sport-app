@@ -87,7 +87,7 @@ function Leaderboard() {
     }, [season, sortBy]);
 
     return (
-        <div style={{ marginTop: "80px" }}>
+        <div style={{ margin: "80px 0" }}>
             <div id="options" >
                 <h4>Options</h4>
                 <div id="sortBy" style={{ display: "inline-block", marginRight: "10px" }}>
@@ -125,7 +125,7 @@ function Leaderboard() {
                 {seasonData.length > 0 ? (
                     <PlayerTable />
                 ) : (
-                    <Spinner animation="border" role="status" style={{marginBottom: "200%"}}>
+                    <Spinner animation="border" role="status" style={{marginBottom: "100%"}}>
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 )}
