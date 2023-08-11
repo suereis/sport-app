@@ -31,11 +31,11 @@ const NavBar = () => {
               <Nav.Link href="/league" id="navBarItem">
                 League
               </Nav.Link>
+              <Nav.Link href="/leaderboard" id="navBarItem">
+                Leaderboard
+              </Nav.Link>
               <Nav.Link href="/teams" id="navBarItem">
                 Teams
-              </Nav.Link>
-              <Nav.Link href="/players" id="navBarItem">
-                Players
               </Nav.Link>
               <Nav.Link href="/games" id="navBarItem">
                 Games
