@@ -84,9 +84,15 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
   font-weight: 500;
 }
 
+.leagueInfo {
+  text-align: left;
+  margin-top: 20px;
+  background-color: rgb(233, 233, 233);
+  padding: 20px;
+  border-radius: 5px;
+}
 
-
-
-
-
-
+.leagueInfo p {
+  margin: 0;
+  padding: 0;
+}
