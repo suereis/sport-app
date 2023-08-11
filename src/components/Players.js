@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Games = () => {
+const Players = () => {
   const navigate = useNavigate();
   return (
-    <div style={{ margin: "100px" }}>
-      <div>Games</div>
+    <div>
+      <div style={{ margin: "100px" }}>Players</div>
       <button
         className="primaryBtn"
         style={{ marginBottom: "10px", marginTop: "15px" }}
@@ -19,4 +19,4 @@ const Games = () => {
   );
 };
 
-export default Games;
+export default Players;

@@ -14,6 +14,8 @@ import Register from "./Register";
 import Team from "./Team";
 import SearchBar from "./SearchBar";
 import Leaderboard from "./leaderboard/Leaderboard";
+import Players from "./Players";
+import Player from "./Player";
 
 const Routing = (props) => {
   return (
@@ -38,6 +40,9 @@ const Routing = (props) => {
             <Route path="/register" element={<Register />} />
             <Route path="/searchBar" element={<SearchBar />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/players" element={<Players />} />
+            <Route path="/player/:id" element={<Player />} />
+
             <Route path="*" element={<Error />} />
           </Routes>
         </Container>

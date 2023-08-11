@@ -44,7 +44,7 @@ const Teams = (props) => {
 
       <button
         className="primaryBtn"
-        style={{ marginBottom: "10px" }}
+        style={{ marginBottom: "10px", marginTop: "30px" }}
         onClick={() => {
           navigate("/");
         }}

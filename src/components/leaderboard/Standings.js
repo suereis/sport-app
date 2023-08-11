@@ -7,7 +7,7 @@ export default function Standings() {
   const [standingsData, setStandingsData] = useState([]);
   const [easternConferenceData, setEasternConferenceData] = useState([]);
   const [westernConferenceData, setWesternConferenceData] = useState([]);
-  const [season, setSeason] = useState(2019);
+  const [season, setSeason] = useState(2022);
 
   const seasons = [];
   for (let year = startYear; year <= endYear; year++) {
