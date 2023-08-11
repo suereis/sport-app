@@ -1,12 +1,13 @@
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -20,11 +21,11 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform login logic here
-    console.log('Login form submitted:', formData);
+    console.log("Login form submitted:", formData);
   };
 
   return (
-    <div style={{ margin: '100px' }}>
+    <div style={{ margin: "100px" }}>
       <div>Login</div>
       <form onSubmit={handleSubmit}>
         <div>
@@ -47,8 +48,21 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button className="primaryBtn" type="submit">
+          Login
+        </button>
       </form>
+      <div>
+        <button
+          className="secondaryBtn"
+          style={{ marginTop: "15px", marginBottom: "10px" }}
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
+          Register
+        </button>
+      </div>
     </div>
   );
 };

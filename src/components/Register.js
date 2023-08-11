@@ -1,30 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState } from "react";
 
 const Register = () => {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     let updatedValue = value;
 
-    if (name === 'email') {
+    if (name === "email") {
       // Check for @ symbol in email
-      if (!value.includes('@')) {
-        console.log('Invalid email format');
-        updatedValue = '';
+      if (!value.includes("@")) {
+        console.log("Invalid email format");
+        updatedValue = "";
       }
-    } else if (name === 'phone') {
+    } else if (name === "phone") {
       // Remove non-numeric characters from phone number
-      updatedValue = value.replace(/\D/g, '');
-    } 
+      updatedValue = value.replace(/\D/g, "");
+    }
 
     setFormData((prevData) => ({
       ...prevData,
@@ -35,11 +36,11 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform registration logic here (e.g., API call or validation)
-    console.log('Form data submitted:', formData);
+    console.log("Form data submitted:", formData);
   };
 
   return (
-    <div style={{ margin: '100px' }}>
+    <div style={{ margin: "100px" }}>
       <div>Register</div>
       <form onSubmit={handleSubmit}>
         <div>
@@ -82,8 +83,21 @@ const Register = () => {
             required
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="primaryBtn" type="submit">
+          Register
+        </button>
       </form>
+      <div>
+        <button
+          className="secondaryBtn"
+          style={{ marginTop: "15px", marginBottom: "10px" }}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Go to Home
+        </button>
+      </div>
     </div>
   );
 };
