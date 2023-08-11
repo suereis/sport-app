@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Games = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{ margin: "100px" }}>
       <div>Games</div>
       <button
         className="primaryBtn"
