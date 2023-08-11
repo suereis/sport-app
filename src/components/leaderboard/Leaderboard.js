@@ -1,14 +1,11 @@
 import React from "react";
 import Players from "./Players";
 import Standings from "./Standings";
-import { Dropdown, Table, Spinner, ButtonGroup, ToggleButton } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import { useState } from "react";
 
 
 function Leaderboard() {
-    const navigate = useNavigate();
-    const { id } = useParams();
     const [leaderboardType, setLeaderboardType] = useState("topPlayers");
 
     const handleLeaderboardChange = (option) => {

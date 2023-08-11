@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Dropdown, Table, Spinner } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
 
 export default function Players() {
     const currentYear = new Date().getFullYear();
