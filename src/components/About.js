@@ -1,38 +1,32 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 const About = () => {
   const navigate = useNavigate();
-  const sportsImages = ["https://wallpaperaccess.com/full/191736.jpg"];
 
-  const myStyle = {
-    width: 300,
-    borderColor: "#F15412",
-  };
   return (
     <div style={{ margin: "100px" }}>
       <div>
-        <div>
-          <div
-            style={{
-              borderStyle: "solid",
-              borderColor: "#F15412",
-            }}
-          >
-            <h1>Welcome to About Me Page!</h1>
-          </div>
-          <div>
-            {sportsImages.map((image) => (
-              <div key={image}>
-                <img style={myStyle} src={image} alt="Sport Image" />
-              </div>
-            ))}
-          </div>
-          <p>Description</p>
-        </div>
+        <Card>
+          <Card.Img
+            variant="top"
+            src="https://t3.ftcdn.net/jpg/05/43/09/94/360_F_543099455_t7u3dj6pu4PItiS5BBVrbuj19vpyp9tb.jpg"
+            width={800}
+            height={400}
+          />
+          <Card.Body>
+            <Card.Text>
+              Basketball is a team sport of 2 teams of 5 players thatto score by
+              throwing the ball at high hoops under certain rules. Played by
+              indoors or outdoors and can be done by anyone.
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
       <button
         className="primaryBtn"
+        style={{ marginBottom: "10px", marginTop: "15px" }}
         onClick={() => {
           navigate("/");
         }}
