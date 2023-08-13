@@ -103,6 +103,10 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
   font-weight: 500;
 }
 
+#leagueInfo {
+  margin: 100px 0;
+}
+
 .leagueInfo {
   text-align: left;
   margin-top: 20px;
@@ -114,4 +118,10 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
 .leagueInfo p {
   margin: 0;
   padding: 0;
+}
+
+@media only screen and (min-width: 900px) {
+  #leagueInfo {
+    margin: 100px;
+  }
 }
