@@ -24,8 +24,7 @@ export default function Standings() {
         method: "GET",
         headers: {
           "X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com",
-          "X-RapidAPI-Key":
-            "112dbd5ef6mshf304b91d17f3948p1b2dc4jsnab361f5b1275",
+          "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
         },
       };
 

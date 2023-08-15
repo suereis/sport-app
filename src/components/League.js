@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import "../App.scss";
 
 const League = () => {
   return (
-    <div id="leagueInfo" style={{ margin: "100px" }}>
+    <div id="leagueInfo">
       <h2>League</h2>
       <div id="overview" className="leagueInfo">
         <h3>Overview</h3>
