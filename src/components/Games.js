@@ -9,20 +9,21 @@ const Games = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const url = "https://api-nba-v1.p.rapidapi.com/games?season=2021";
+      const url = "https://free-nba.p.rapidapi.com/games?page=0&per_page=25";
       const options = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key": "818ba989camsh7589688975ce7ebp156339jsna0795b66c292",
-          "X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com",
+          "X-RapidAPI-Key":
+            "1f7896f7e8msh9824baff5cae594p168600jsnfa31657bb517",
+          "X-RapidAPI-Host": "free-nba.p.rapidapi.com",
         },
       };
 
       try {
         const response = await fetch(url, options);
-        const data = await response.json();
-        console.log(data);
-        setGames(data.response || []);;
+        const result = await response.json();
+        console.log(result);
+        setGames(result.data || []);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -39,133 +40,48 @@ const Games = () => {
         <strong>
           <h1>Games</h1>
         </strong>
-      </div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Season</th>
-              <th>Date</th>
-              <th>Stage</th>
-              <th>Periods</th>
-              <th>Arena</th>
-              <th>Visitors Team</th>
-              <th>Home Team</th>
-              <th>Visitors Score</th>
-              <th>Home Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {games.map((games) => (
-              <tr key={games.id}>
-                <td>{games.teamAbv}</td>
-                {/* <td>{games.date.start}</td>
-                <td>{games.stage.long}</td>
-                <td>{games.periods.total}</td>
-                <td>{games.arena.name}, {games.arena.city}</td>
-                <td>{games.teams.visitors.name}</td>
-                <td>{games.teams.home.name}</td>
-                <td>{games.scores.visitors.points}</td>
-                <td>{games.scores.home.points}</td> */}
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Season</th>
+                <th>Date</th>
+                <th>Home Team</th>
+                <th>Visitors Team</th>
+                <th>Home Team Score</th>
+                <th>Visitors Team Score</th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-      )}
-      <button
-        className="primaryBtn"
-        style={{ marginBottom: "10px", marginTop: "15px" }}
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Go to Home
-      </button>
+            </thead>
+            <tbody>
+              {games.map((game) => (
+                <tr key={game.id}>
+                  <td>{game.id}</td>
+                  <td>{game.season}</td>
+                  <td>{new Date(game.date).toLocaleDateString()}</td>
+                  <td>{game.home_team.name}</td>
+                  <td>{game.visitor_team.name}</td>
+                  <td>{game.home_team_score}</td>
+                  <td>{game.visitor_team_score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+        <button
+          className="primaryBtn"
+          style={{ marginBottom: "10px", marginTop: "15px" }}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Go to Home
+        </button>
+      </div>
     </div>
   );
 };
 
 export default Games;
-
-
-
-
-// const Games = () => {
-//   const navigate = useNavigate();
-//   const [gameData, setGameData] = useState([]);
-
-//   const fetchGames = async () => {
-//     setGameData([]);
-//     const url = 'https://api-nba-v1.p.rapidapi.com/games?season=2021';
-//     console.log(url);
-
-//     const options = {
-//       method: 'GET',
-//       headers: {
-//         'X-RapidAPI-Key': '818ba989camsh7589688975ce7ebp156339jsna0795b66c292',
-//         'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-//       }
-//     };
-
-//     try {
-//       const response = await fetch(url, options);
-//       const json = await response.json();
-//       setGameData(json.response);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchGames();
-//   }, []);
-
-//   return (
-//     <div style={{ margin: "100px" }}>
-//       <div><strong><h1>Games</h1></strong></div>
-//       <Table striped bordered hover>
-//         <thead>
-//           <tr>
-//             <th>Season</th>
-//             <th>Date</th>
-//             <th>Stage</th>
-//             <th>Periods</th>
-//             <th>Arena</th>
-//             <th>Visitors Team</th>
-//             <th>Home Team</th>
-//             <th>Visitors Score</th>
-//             <th>Home Score</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {gameData.map((game) => (
-//             <tr key={game.id}>
-//               <td>{game.season}</td>
-//               <td>{game.date.start}</td>
-//               <td>{game.stage.long}</td>
-//               <td>{game.periods.total}</td>
-//               <td>{game.arena.name}, {game.arena.city}</td>
-//               <td>{game.teams.visitors.name}</td>
-//               <td>{game.teams.home.name}</td>
-//               <td>{game.scores.visitors.points}</td>
-//               <td>{game.scores.home.points}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </Table>
-//       <button
-//         className="primaryBtn"
-//         style={{ marginBottom: "10px", marginTop: "15px" }}
-//         onClick={() => {
-//           navigate("/");
-//         }}
-//       >
-//         Go to Home
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default Games;
