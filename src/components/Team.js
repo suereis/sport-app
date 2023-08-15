@@ -21,8 +21,8 @@ const Team = (props) => {
           style={{
             marginLeft: "auto",
             marginRight: "auto",
-            border: "1px solid #F15412",
-            backgroundColor: "#020205",
+            borderBlockEnd: "1px solid #212529",
+            // backgroundColor: "#020205",
           }}
         ></Card.Img>
         <Card.Body>

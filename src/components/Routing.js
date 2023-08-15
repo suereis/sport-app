@@ -6,13 +6,16 @@ import Home from "./Home";
 import About from "./About";
 import League from "./League";
 import Teams from "./Teams";
-import Players from "./Players";
 import Games from "./Games";
 import Footer from "./Footer";
 import Error from "./Error";
 import Login from "./Login";
 import Register from "./Register";
 import Team from "./Team";
+import SearchBar from "./SearchBar";
+import Leaderboard from "./leaderboard/Leaderboard";
+import Players from "./Players";
+import Player from "./Player";
 
 const Routing = (props) => {
   return (
@@ -32,10 +35,14 @@ const Routing = (props) => {
               path="/team/:teamId"
               element={<Team teamsData={props.teamsData} />}
             />
-            <Route path="/players/:teamId" element={<Players />} />
             <Route path="/games" element={<Games />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/searchBar" element={<SearchBar />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/players" element={<Players />} />
+            <Route path="/player/:id" element={<Player />} />
+
             <Route path="*" element={<Error />} />
           </Routes>
         </Container>

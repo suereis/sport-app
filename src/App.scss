@@ -84,9 +84,44 @@ $blueColor: rgb(52, 179, 241); //#34B3F1
   font-weight: 500;
 }
 
+.secondaryBtn {
+  background-color: $blackColor;
+  color: $whiteColor;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 3px 1px;
+  cursor: pointer;
+}
 
+.secondaryBtn:hover {
+  background-color: $whiteColor;
+  color: $blackColor;
+  font-weight: 500;
+}
 
+#leagueInfo {
+  margin: 100px 0;
+}
 
+.leagueInfo {
+  text-align: left;
+  margin-top: 20px;
+  background-color: rgb(233, 233, 233);
+  padding: 20px;
+  border-radius: 5px;
+}
 
+.leagueInfo p {
+  margin: 0;
+  padding: 0;
+}
 
-
+@media only screen and (min-width: 900px) {
+  #leagueInfo {
+    margin: 100px;
+  }
+}

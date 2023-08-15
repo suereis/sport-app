@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Logo from "../images/logo.png";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <div id="navDiv" className="fixed-top">
       <Navbar
@@ -29,6 +31,9 @@ const NavBar = () => {
               <Nav.Link href="/league" id="navBarItem">
                 League
               </Nav.Link>
+              <Nav.Link href="/leaderboard" id="navBarItem">
+                Leaderboard
+              </Nav.Link>
               <Nav.Link href="/teams" id="navBarItem">
                 Teams
               </Nav.Link>
@@ -49,7 +54,14 @@ const NavBar = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button className="primaryBtn">Search</Button>
+              <Button
+                className="primaryBtn"
+                onClick={() => {
+                  navigate("/searchBar");
+                }}
+              >
+                Search
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>

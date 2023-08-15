@@ -1,17 +1,14 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Players = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
   return (
-    <div style={{ margin: "100px" }}>
-      <div>
-        Players from Team
-        {id}
-      </div>
+    <div>
+      <div style={{ margin: "100px" }}>Players</div>
       <button
         className="primaryBtn"
+        style={{ marginBottom: "10px", marginTop: "15px" }}
         onClick={() => {
           navigate("/");
         }}
