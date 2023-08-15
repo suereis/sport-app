@@ -50,9 +50,9 @@ const Home = () => {
             <Card.Title>NBA Leagues</Card.Title>
             <Card.Text>Check for additional information</Card.Text>
             <Button
-              className="secondaryBtn"
+              className="primaryBtn"
               onClick={() => {
-                navigate("/leagues");
+                navigate("/league");
               }}
             >
               Here it is!
@@ -69,9 +69,9 @@ const Home = () => {
                   Check team standings and player performances.
                 </Card.Text>
                 <button
-                  className="secondaryBtn"
+                  className="primaryBtn"
                   onClick={() => {
-                    navigate("/leadboard");
+                    navigate("/leaderboard");
                   }}
                 >
                   details
@@ -85,7 +85,7 @@ const Home = () => {
                 <Card.Title>Teams</Card.Title>
                 <Card.Text>Check info from your favorite teams.</Card.Text>
                 <button
-                  className="secondaryBtn"
+                  className="primaryBtn"
                   onClick={() => {
                     navigate("/teams");
                   }}
@@ -101,7 +101,7 @@ const Home = () => {
                 <Card.Title>Games</Card.Title>
                 <Card.Text>Check your favorite team game score.</Card.Text>
                 <button
-                  className="secondaryBtn"
+                  className="primaryBtn"
                   onClick={() => {
                     navigate("/games");
                   }}
