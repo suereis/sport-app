@@ -62,7 +62,7 @@ const Home = () => {
 
         <Row>
           <Col md={4}>
-            <Card>
+            <Card style={{ height: "180px" }}>
               <Card.Body>
                 <Card.Title>Leaderboard</Card.Title>
                 <Card.Text>
@@ -80,7 +80,7 @@ const Home = () => {
             </Card>
           </Col>
           <Col md={4}>
-            <Card>
+            <Card style={{ height: "180px" }}>
               <Card.Body>
                 <Card.Title>Teams</Card.Title>
                 <Card.Text>Check info from your favorite teams.</Card.Text>
@@ -96,7 +96,7 @@ const Home = () => {
             </Card>
           </Col>
           <Col md={4}>
-            <Card>
+            <Card style={{ height: "180px" }}>
               <Card.Body>
                 <Card.Title>Games</Card.Title>
                 <Card.Text>Check your favorite team game score.</Card.Text>
