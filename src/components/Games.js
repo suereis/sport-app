@@ -50,9 +50,9 @@ const Games = () => {
                 <th>Season</th>
                 <th>Date</th>
                 <th>Home Team</th>
+                <th>Home Score</th>
                 <th>Visitors Team</th>
-                <th>Home Team Score</th>
-                <th>Visitors Team Score</th>
+                <th>Visitors Score</th>
               </tr>
             </thead>
             <tbody>
@@ -62,8 +62,8 @@ const Games = () => {
                   <td>{game.season}</td>
                   <td>{new Date(game.date).toLocaleDateString()}</td>
                   <td>{game.home_team.name}</td>
-                  <td>{game.visitor_team.name}</td>
                   <td>{game.home_team_score}</td>
+                  <td>{game.visitor_team.name}</td>
                   <td>{game.visitor_team_score}</td>
                 </tr>
               ))}
