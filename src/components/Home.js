@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Carousel, Card, Table, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Carousel, Card, Col, Row, Button } from "react-bootstrap";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -43,40 +45,73 @@ const Home = () => {
         </Carousel>
 
         <Card>
-          <Card.Header>Sports Featured</Card.Header>
+          <Card.Header>Leagues</Card.Header>
           <Card.Body>
-            <Card.Title>A quick treatment of any sports fans</Card.Title>
-            <Card.Text>Additional content for the sports teams</Card.Text>
-            <Button variant="primary">Here it is!</Button>
+            <Card.Title>NBA Leagues</Card.Title>
+            <Card.Text>Check for additional information</Card.Text>
+            <Button
+              className="secondaryBtn"
+              onClick={() => {
+                navigate("/leagues");
+              }}
+            >
+              Here it is!
+            </Button>
           </Card.Body>
         </Card>
 
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Games: </th>
-              <th>Team 1:</th>
-              <th>Team 2: </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Team A</td>
-              <td>Team B</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Team C</td>
-              <td>Team D</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Team E</td>
-              <td>Team F</td>
-            </tr>
-          </tbody>
-        </Table>
+        <Row>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Leaderboard</Card.Title>
+                <Card.Text>
+                  Check team standings and player performances.
+                </Card.Text>
+                <button
+                  className="secondaryBtn"
+                  onClick={() => {
+                    navigate("/leadboard");
+                  }}
+                >
+                  details
+                </button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Teams</Card.Title>
+                <Card.Text>Check info from your favorite teams.</Card.Text>
+                <button
+                  className="secondaryBtn"
+                  onClick={() => {
+                    navigate("/teams");
+                  }}
+                >
+                  details
+                </button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <Card>
+              <Card.Body>
+                <Card.Title>Games</Card.Title>
+                <Card.Text>Check your favorite team game score.</Card.Text>
+                <button
+                  className="secondaryBtn"
+                  onClick={() => {
+                    navigate("/games");
+                  }}
+                >
+                  details
+                </button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </div>
     </div>
   );
