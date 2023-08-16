@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Dropdown, Table, Spinner } from "react-bootstrap";
 
 export default function Standings() {
-  const endYear = new Date().getFullYear() - 1;
+  const endYear = new Date().getFullYear() - 2;
   const startYear = 2018;
   const [standingsData, setStandingsData] = useState([]);
   const [easternConferenceData, setEasternConferenceData] = useState([]);
   const [westernConferenceData, setWesternConferenceData] = useState([]);
-  const [season, setSeason] = useState(2022);
+  const [season, setSeason] = useState(2021);
 
   const seasons = [];
   for (let year = startYear; year <= endYear; year++) {
